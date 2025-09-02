@@ -7,7 +7,7 @@ void IntersectionOfArray(int arr1[], int arr2[], int n, int m) {
 
     while (i < n && j < m) {
         if (arr1[i] == arr2[j]) {
-            if (k == 0 || arr[k - 1] != arr1[i]) {  // avoid duplicates
+            if (k == 0 || arr[k - 1] != arr1[i]) {  
                 arr[k] = arr1[i];
                 k++;
             }
@@ -15,10 +15,10 @@ void IntersectionOfArray(int arr1[], int arr2[], int n, int m) {
             j++;
         }
         else if (arr1[i] > arr2[j]) {
-            j++;  // move second array forward
+            j++;  
         }
         else {
-            i++;  // move first array forward
+            i++;
         }
     }
 
