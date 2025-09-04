@@ -3,7 +3,6 @@ using namespace std;
 int LongestSubArray(int arr[], int n, int k)
 {
     int sum = 0;
-    int idx = 0;
     int seq = 0;
     for (int i = 0; i < n; i++)
     {
@@ -12,12 +11,11 @@ int LongestSubArray(int arr[], int n, int k)
             sum = sum + arr[j];
             if (sum <= k)
             {
-                idx++;
-                seq = max(seq, idx);
+                
+                seq = max(seq, j-i+1);
             }
             else
             {
-                idx = 0;
                 sum = 0;
             }
         }
