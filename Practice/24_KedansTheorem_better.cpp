@@ -1,8 +1,8 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 int minSubArraySum(int arr[], int n)
 {
-    int maxi = INT8_MIN;
+    int maxi = INT_MIN;
     int sum;
     for (int i = 0; i < n; i++)
     {
