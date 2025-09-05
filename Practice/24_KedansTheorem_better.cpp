@@ -2,7 +2,7 @@
 using namespace std;
 int minSubArraySum(int arr[], int n)
 {
-    int mini = INT8_MAX;
+    int maxi = INT8_MIN;
     int sum;
     for (int i = 0; i < n; i++)
     {
@@ -11,10 +11,10 @@ int minSubArraySum(int arr[], int n)
         {
 
             sum += arr[j];
-            mini = min(sum, mini);
+            maxi = max(sum, maxi);
         }
     }
-    return mini;
+    return maxi;
 }
 int main()
 {
