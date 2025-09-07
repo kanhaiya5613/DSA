@@ -2,42 +2,24 @@
 using namespace std;
 void RearrangeArray(int arr[], int n)
 {
-    int pos[n / 2];
-    int neg[n / 2];
-
+    int ans[n];
+    int posIndex =0;
+    int negIndex = 1;
     for (int i = 0; i < n; i++)
     {
-        int k = 0;
-        int j = 0;
-        while (k < n / 2 && j < n / 2)
-        {
-            if (arr[i] >= 0)
-            {
-                pos[k] = arr[i];
-                k++;
-            }
-            else if (arr[i] < 0)
-            {
-                neg[j] = arr[i];
-                j++;
-            }
-        }
+       if(arr[i]>0){
+        ans[posIndex]=arr[i];
+        posIndex +=2;
+       } 
+       else{
+        ans[negIndex] = arr[i];
+        negIndex +=2;
+       }
     }
-    int j=0;
-    int k=0;
-    for(int i=0;i<n;i++){
-        if(i/2==0){
-            arr[i]=pos[k];
-            k++;
-        }
-        if(i/2!=0){
-            arr[i]=neg[j];
-            j++;
-        }
-    }
+    
     cout<<"Rearranged array is : ";
     for(int i=0;i<n;i++){
-        cout << arr[i] << " ";
+        cout << ans[i] << " ";
     }
 }
 int main()
