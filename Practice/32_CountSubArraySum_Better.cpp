@@ -1,28 +1,29 @@
-#include <iostream>
-#include <vector>
-#include <unordered_map>
+#include<bits/stdc++.h>
 using namespace std;
-
-// Function to count subarrays with given sum using better approach (prefix sum + hashmap)
-int countSubArraySum(const vector<int>& arr, int targetSum) {
-    unordered_map<int, int> prefixSumCount;
-    int currSum = 0, count = 0;
-    prefixSumCount[0] = 1; // To handle subarrays starting from index 0
-
-    for (int num : arr) {
-        currSum += num;
-        if (prefixSumCount.find(currSum - targetSum) != prefixSumCount.end()) {
-            count += prefixSumCount[currSum - targetSum];
+int CountSubArraySum(int arr[],int n,int k){
+    int count = 0;
+    for(int i=0;i<n;i++){
+        int sum=0;
+        for(int j=i;j<n;j++){
+            sum += arr[j];
+            if(sum == k){
+                count++;
+            }
         }
-        prefixSumCount[currSum]++;
     }
     return count;
 }
-
-int main() {
-    vector<int> arr = {1, 2, 3, -2, 5, 1, 2};
-    int targetSum = 5;
-    cout << "Count of subarrays with sum " << targetSum << " is: "
-         << countSubArraySum(arr, targetSum) << endl;
-    return 0;
+int main(){
+    int n;
+    cout << "Enter the size of array : ";
+    cin >> n;
+    int k;
+    cout << "Enter the Value of SubArray Sum : ";
+    cin >> k;
+    int arr[n]; 
+    cout<<"Enter the elements of Array : ";
+    for(int i=0;i<n;i++){
+        cin >> arr[i];
+    }
+    cout << "Total SubArray Sum is : " << CountSubArraySum(arr,n,k);
 }
