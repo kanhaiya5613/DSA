@@ -16,6 +16,7 @@ int CountSubArray(int arr[], int n, int k)
     }
     return cnt;
 }
+
 int main()
 {
     int n;
