@@ -36,11 +36,11 @@ void merge(vector<int> &nums1, int m, vector<int> &nums2, int n)
     }
 
     // copy back to nums1
-    for (int k = 0; k < m + n; k++)
+    for (int k = 0; k < m ; k++)
     {
         nums1[k] = num[k];
     }
-    for(int k=0;k<m+n;k++){
+    for(int k=0;k<n;k++){
         nums2[k]=num[k+m];
     }
 
