@@ -7,9 +7,7 @@ vector<int> check_Numbers(int arr[], int n) {
     // Step 1: XOR all array elements and numbers from 1 to n
     for (int i = 0; i < n; i++) {
         xr ^= arr[i];
-    }
-    for (int i = 1; i <= n; i++) {
-        xr ^= i;
+        xr ^= (i + 1);
     }
 
     // Step 2: Find rightmost set bit
@@ -20,7 +18,7 @@ vector<int> check_Numbers(int arr[], int n) {
         bitNo++;
     }
 
-    // Step 3: Divide numbers into two buckets and XOR separately
+    // Step 3: Divide numbers into two groups
     int zero = 0, one = 0;
     for (int i = 0; i < n; i++) {
         if ((arr[i] & (1 << bitNo)) != 0)
@@ -36,7 +34,7 @@ vector<int> check_Numbers(int arr[], int n) {
             zero ^= i;
     }
 
-    // Step 4: Identify which one is missing and which one is repeating
+    // Step 4: Determine which is repeating and which is missing
     int cnt = 0;
     for (int i = 0; i < n; i++) {
         if (arr[i] == zero)
