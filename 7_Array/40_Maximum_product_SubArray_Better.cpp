@@ -4,8 +4,8 @@ int MaximumProductSubarray(int arr[],int n,int product){
     int count = 0;
     int mult;
     for(int i=0;i<n;i++){
-        mult = arr[i];
-        for(int j=i+1;j<n;j++){
+        mult = 1;
+        for(int j=i;j<n;j++){
            mult *= arr[j];
             if(mult == product){
                 count++;
