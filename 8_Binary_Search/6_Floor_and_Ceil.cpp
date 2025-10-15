@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-void FloorAndSeil(int arr[],int target,int n){
+void FloorAndCeil(int arr[],int target,int n){
     int low = 0;
     int high = n-1;
     int floor = -1;
@@ -41,5 +41,5 @@ int main(){
     int left = 0;
     int right = n-1;
 
-    FloorAndSeil(arr,target,n);
+    FloorAndCeil(arr,target,n);
 }
