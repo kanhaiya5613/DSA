@@ -4,7 +4,7 @@ int missingMultiple(vector<int> &nums, int k)
 {
     int n = nums.size();
     unordered_set<int> s(nums.begin(), nums.end());
-    for (int i = 0; i <= n; i++)
+    for (int i = 1; i <= n; i++)
     {
         int multiple = k * i;
         if (s.find(multiple) == s.end())
