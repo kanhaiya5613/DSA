@@ -27,8 +27,16 @@ Node* convertArraytoLL(vector<int> &arr){
     }
     return head;
 }
+int searchElement(Node* head, int n){
+     Node* temp = head;
+    while(temp){
+         if(temp->data == n) return 1;
+         temp = temp->next;
+    }
+    return 0;
+}
 int main(){
     vector<int> arr = {2,4,6,8};
     Node* head= convertArraytoLL(arr);
-    cout << head;
+    cout << searchElement(head,6);
 }
