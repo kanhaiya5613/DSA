@@ -28,23 +28,36 @@ Node* ConvertArrToLL(vector<int>&arr){
     }
     return head;
 }
-Node* deleteTailNode(Node* head){
-    if(head==NULL || head->next == NULL) return NULL;
-    Node* temp = head;
-    while(temp->next->next){
-        temp = temp->next;
+Node* deleteKthNode(Node* head,int k){
+    if(head==NULL) return head;
+    if(k==1){
+        Node* temp = head;
+        head = head->next;
+        free(temp);
+        return head;
     }
-    free(temp->next); // delete temp
-    temp->next=nullptr;
-
-    
+    int cnt = 1;
+    Node* temp = head;
+    Node* prev = nullptr;
+    while(temp!=nullptr){
+        if(cnt==k){
+            prev->next = prev->next->next;
+            free(temp);
+            return head;
+        }
+        prev=temp;
+        temp=temp->next;
+        cnt++;
+    }
     return head;
+
 }
 
 int main(){
     vector<int> arr = {1,4,6,9,11};
+    int k = 4;
     Node* head = ConvertArrToLL(arr);
-    Node* head1 = deleteTailNode(head);
+    Node* head1 = deleteKthNode(head,k);
     Node* temp = head1;
     while(temp){
         cout << temp->data << " ";
