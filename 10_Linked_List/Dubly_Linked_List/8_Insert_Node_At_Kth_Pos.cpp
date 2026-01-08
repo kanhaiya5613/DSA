@@ -36,31 +36,36 @@ void print(Node* head){
     }
 }
 
-Node* insertNodeBeforeTail(Node* head,int val){
-   if(head == nullptr ){
-    return new Node(val);
-   }
-   if(head->next == nullptr){
-    Node* temp = new Node(val,head,nullptr);
-    head->back = temp; 
-    return temp;
-   }
+Node* insertNodeAtK(Node* head,int val,int k){
+     if(k == 1){
+        Node* newNode = new Node(val, head, nullptr);
+        if(head != nullptr){
+            head->back = newNode;
+        }
+        return newNode;
+    }
    Node* temp = head;
-   while(temp->next->next != nullptr){
+   int cnt = 1;
+   while(temp->next != nullptr && cnt < k){
     temp = temp -> next;
+    cnt++;
+   }
+   if(temp==nullptr){
+    return head;
    }
    Node* NewNode = new Node(val,temp->next,temp);
+   if(temp->next != nullptr){
+   temp->next->back = NewNode;
+   }
    temp->next = NewNode;
-   NewNode->next->back = NewNode;
-
-
    return head;
 }
 int main(){
     vector<int> arr = {12,8,6,4,9,7};
     int val = 4;
+    int k=4;
     Node* head = convertArrayToDLL(arr);
-    head = insertNodeBeforeTail(head,val);
+    head = insertNodeAtK(head,val,k);
     print(head);
     return 0;
 }
