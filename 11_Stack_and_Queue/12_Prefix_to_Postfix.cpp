@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-string PostfixToPrefix(string s){
+string PrefixToPostfix(string s){
     stack<string>st;
     int i = s.size()-1;
     while(i>=0){
@@ -22,10 +22,10 @@ string PostfixToPrefix(string s){
 }
 int main(){
     string s;
-    cout << "Enter Postfix Expression : ";
+    cout << "Enter Prefix Expression : ";
     getline(cin,s);
 
-    string Infix = PostfixToPrefix(s);
+    string Infix = PrefixToPostfix(s);
 
-    cout << "Prefix Expression : " << Infix;
+    cout << "Postfix Expression : " << Infix;
 }
