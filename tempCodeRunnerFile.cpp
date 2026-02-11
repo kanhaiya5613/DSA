@@ -16,6 +16,7 @@ void insertionlist(int data) {
     else{
         ptr=next=Head;
         Head= ptr;
-        count++;
+        count++;   
     }
+    
 }
