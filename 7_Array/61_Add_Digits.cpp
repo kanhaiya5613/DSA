@@ -15,5 +15,5 @@ using namespace std;
         int n;
         cout << "Enter a value : ";
         cin >> n;
-        cout << "The sum of all digits till sum in not less then 10  is : "<< addDigits(n);
+        cout << "The sum of all digits till sum in not less then 10 is : "<< addDigits(n);
     }
