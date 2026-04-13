@@ -5,7 +5,7 @@ int longestSubarray(int arr[],int size,int k){
     int left=0;
     int right=0;
     int maxlenght = 0;
-    while(right <= size){            // TWO POINTER METHOD
+    while(right <= size){            
        if(right >= left && sum > k){
         sum = sum - arr[left];
         left++;
@@ -22,5 +22,5 @@ int main(){
     int arr[]={1,-2,-3,2,1,3,2,3,1,1};
     int size = sizeof(arr)/sizeof(arr[0]);
     int k = 4;
-    cout << "The maximum Length is : " <<  longestSubarray(arr,size,k);
+    cout << "The maximum Length is : " <<  longestSulbarray(arr,size,k);
 }
